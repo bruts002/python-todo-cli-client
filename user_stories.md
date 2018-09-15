@@ -9,3 +9,4 @@ update todo|x
 finish todo|x
 remove todo|x
 persist todo|
+modularize|
