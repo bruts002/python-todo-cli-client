@@ -26,8 +26,15 @@ def get_new_todo():
   my_list.add_todo(new_todo)
 
 def choose_todo():
-  todo_number = int(input('Which todo number do you want to choose?'))
-  todo_item = my_list.todo_items[todo_number - 1].description
+  max_todo_number = len(my_list.todo_items)
+  todo_number = -1
+  while todo_number < 0 or todo_number > max_todo_number:
+    try:
+      todo_number = int( input('Enter number [0-' + str(max_todo_number) + ']: ')) - 1
+    except:
+      todo_number = -1
+
+  todo_item = my_list.todo_items[todo_number].description
   print('You chose "', todo_item, '"')
   c = input('THis waht you wanted?')
 
