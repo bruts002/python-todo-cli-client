@@ -25,10 +25,18 @@ def get_new_todo():
   new_todo = input("New Todo: ")
   my_list.add_todo(new_todo)
 
+def choose_todo():
+  todo_number = int(input('Which todo number do you want to choose?'))
+  todo_item = my_list.todo_items[todo_number - 1].description
+  print('You chose "', todo_item, '"')
+  c = input('THis waht you wanted?')
+
 
 while choice != 'q':
   render()
   choice = get_user_choice()
   if choice == 'a':
     get_new_todo()
+  elif choice == 'c':
+    choose_todo()
 
