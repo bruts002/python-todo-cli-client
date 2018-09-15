@@ -5,7 +5,7 @@ Feature | Complete
 --|--
 Add todo|x
 select todo|x
-update todo|
-finish todo|
-remove todo|
+update todo|x
+finish todo|x
+remove todo|x
 persist todo|

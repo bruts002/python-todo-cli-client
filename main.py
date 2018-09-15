@@ -135,14 +135,17 @@ def print_edit_options():
   print("[t]oggle complete")
 
 def update_todo():
-  updated_todo = input('Updated description: ')
-  pass
+  description = input('Updated description: ')
+  my_list.update_todo(selected_todo_index, description)
 
 def delete_todo():
-  pass
+  global selected_todo_index
+  my_list.delete_todo(selected_todo_index)
+  max_todo_number = len(my_list.todo_items) - 1
+  selected_todo_index = min(max_todo_number, selected_todo_index)
 
 def toggle_todo():
-  pass
+  my_list.toggle_todo(selected_todo_index)
 
 
 while choice != 'q':
