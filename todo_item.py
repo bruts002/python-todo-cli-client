@@ -1,8 +1,8 @@
 
 class TodoItem:
-  def __init__(self, description):
+  def __init__(self, description, done=False):
     self.description = description
-    self.done = False
+    self.done = done
 
   def update(self, description):
     self.description = description

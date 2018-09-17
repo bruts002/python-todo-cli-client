@@ -22,7 +22,8 @@ def get_todos():
   all_todos = res.json()
   global list_name
   todo_list = [todo for todo in all_todos if todo['name'] == list_name]
-  print(todo_list[0]['todos'])
+  return todo_list[0]['todos']
+
 
 if __name__ == '__main__':
   get_todos()

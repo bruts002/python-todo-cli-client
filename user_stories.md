@@ -8,5 +8,5 @@ select todo|x
 update todo|x
 finish todo|x
 remove todo|x
-persist todo|
+use todo_app api|
 modularize|

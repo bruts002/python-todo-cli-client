@@ -1,4 +1,5 @@
 from terminal_utils import get_terminal_size, clear_terminal
+from todo_api import get_todos
 from todo_list import TodoList
 from msvcrt import getch
 
@@ -8,10 +9,9 @@ from msvcrt import getch
 choice = ''
 selected_todo_index = -1
 my_list = TodoList()
-my_list.add_todo('Learn python')
-my_list.add_todo('Rid of spiders')
-my_list.add_todo('Fix bathroom')
-my_list.add_todo('Dethatch yard')
+todos = get_todos()
+for todo in todos:
+  my_list.add_todo(todo['todo'], todo['isDone'])
 
 class Colors:
   HEADER = '\033[95m'
