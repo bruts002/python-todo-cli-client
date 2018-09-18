@@ -1,6 +1,5 @@
 import requests
 
-list_name = 'Terminal'
 config = {
   'protocol': 'http',
   'host': 'localhost',
@@ -8,22 +7,36 @@ config = {
 }
 
 class TodoURLs:
-  LIST = '/api/todo_app/list'
-  TODO = '/api/todo_app/todo'
+  LIST = '/api/todo_app/list/'
+  TODO = '/api/todo_app/todo/'
 
 def get_url(endpoint):
   global config
   return config['protocol'] + '://' + config['host'] + ':' + config['port'] + endpoint
 
 
-def get_todos():
+def get_todos(list_name):
   url = get_url(TodoURLs.TODO)
   res = requests.get(url)
   all_todos = res.json()
-  global list_name
   todo_list = [todo for todo in all_todos if todo['name'] == list_name]
-  return todo_list[0]['todos']
+  list_id = todo_list[0]['id']
+  return (list_id, todo_list[0]['todos'])
 
+
+def add_todo(list_id, desc):
+  url = get_url(TodoURLs.TODO)
+  payload = {
+    'todo': desc,
+    'listId': list_id
+  }
+  requests.post(url, json=payload)
+  
+
+def remove_todo(id):
+  url = get_url(TodoURLs.TODO)
+  payload = { 'todoId': id }
+  requests.delete(url, json=payload)
 
 if __name__ == '__main__':
-  get_todos()
+  print(get_todos('Terminal'))
