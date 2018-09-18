@@ -1,4 +1,5 @@
 from print_utils import print_selected, print_regular
+from todo_api import remove_todo
 
 class TodoItem:
   def __init__(self, todo):
@@ -17,6 +18,10 @@ class TodoItem:
       print_selected(text)
     else:
       print_regular(text)
+
+
+  def remove(self):
+    remove_todo(self.id)
 
 
   def update(self, description):

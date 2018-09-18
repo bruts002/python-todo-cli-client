@@ -82,5 +82,6 @@ class TodoList:
 
 
   def delete_todo(self):
-    pass
+    self.todos[self.current].remove()
+    self.__refresh__()
 
