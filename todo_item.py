@@ -1,5 +1,5 @@
 from print_utils import print_selected, print_regular
-from todo_api import remove_todo, toggle_todo
+from todo_api import remove_todo, toggle_todo, update_todo
 
 class TodoItem:
   def __init__(self, todo):
@@ -24,8 +24,9 @@ class TodoItem:
     remove_todo(self.id)
 
 
-  def update(self, description):
-    self.description = description
+  def update(self):
+    todo = input("Update todo: ")
+    update_todo(self.id, todo)
   
   def toggle(self):
     toggle_todo(self.id, not self.done)

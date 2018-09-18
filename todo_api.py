@@ -42,6 +42,15 @@ def toggle_todo(id, new_done):
   requests.put(url, json=payload)
 
 
+def update_todo(id, todo):
+  url = get_url(TodoURLs.TODO)
+  payload = {
+    'id': id,
+    'todo': todo
+  }
+  requests.put(url, json=payload)
+
+
 def remove_todo(id):
   url = get_url(TodoURLs.TODO)
   payload = { 'todoId': id }
