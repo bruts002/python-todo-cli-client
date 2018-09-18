@@ -1,5 +1,5 @@
 from print_utils import print_selected, print_regular
-from todo_api import remove_todo, toggle_todo, update_todo
+from todo_api import remove_todo, toggle_todo, update_todo, add_todo
 
 class TodoItem:
   def __init__(self, todo):
@@ -28,5 +28,12 @@ class TodoItem:
     todo = input("Update todo: ")
     update_todo(self.id, todo)
   
+
   def toggle(self):
     toggle_todo(self.id, not self.done)
+
+
+  @staticmethod
+  def add(list_id):
+    todo = input('New todo: ')
+    add_todo(list_id, todo)

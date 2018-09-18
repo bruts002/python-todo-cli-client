@@ -33,11 +33,12 @@ class TodoList:
   @staticmethod
   def print_edit_options():
     print("\n[u]pdate")
+    print("[a]dd a todo")
     print("[d]elete")
     print("[t]oggle complete")
 
   
-  def select(self):
+  def focus(self):
     max_index = len(self.todos) - 1
     self.current = 0
     c = '0'.encode('ascii')
@@ -64,12 +65,14 @@ class TodoList:
         self.delete_todo()
       elif c == b't':
         self.toggle_todo()
+      elif c == b'a':
+        self.add_todo()
   
     self.current = -1
 
 
-  def add_todo(self, description):
-    add_todo(self.id, description)
+  def add_todo(self):
+    TodoItem.add(self.id)
     self.__refresh__()
 
 

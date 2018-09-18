@@ -13,15 +13,10 @@ def render():
   my_list.render()
 
 def get_user_choice():
-  print("\n[a]dd a todo")
-  print("[c]hoose a todo")
+  print("[f]ocus list")
   print("[q]uit.")
   
   return input("What would you like to do? ")
-
-def get_new_todo():
-  new_todo = input("New Todo: ")
-  my_list.add_todo(new_todo)
 
 
 def main():
@@ -29,10 +24,8 @@ def main():
   while choice != 'q':
     render()
     choice = get_user_choice()
-    if choice == 'a':
-      get_new_todo()
-    elif choice == 'c':
-      my_list.select()
+    if choice == 'f':
+      my_list.focus()
 
 
 if __name__ == '__main__':
