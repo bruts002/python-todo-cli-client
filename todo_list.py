@@ -78,7 +78,8 @@ class TodoList:
 
 
   def toggle_todo(self):
-    pass
+    self.todos[self.current].toggle()
+    self.__refresh__()
 
 
   def delete_todo(self):

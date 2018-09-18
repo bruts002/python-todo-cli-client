@@ -31,7 +31,16 @@ def add_todo(list_id, desc):
     'listId': list_id
   }
   requests.post(url, json=payload)
-  
+
+
+def toggle_todo(id, new_done):
+  url = get_url(TodoURLs.TODO)
+  payload = {
+    'id': id,
+    'isDone': new_done
+  }
+  requests.put(url, json=payload)
+
 
 def remove_todo(id):
   url = get_url(TodoURLs.TODO)
